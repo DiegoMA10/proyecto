@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/LoginFragment">
+
+    <!-- Login -->
+    <fragment
+        android:id="@+id/LoginFragment"
+        android:name="com.example.proyecto.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_LoginFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment"
+            app:popUpTo="@id/LoginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_LoginFragment_to_RegisterFragment"
+            app:destination="@id/RegisterFragment"
+            app:popUpTo="@id/LoginFragment" />
+    </fragment>
+
+    <!-- Registro -->
+    <fragment
+        android:id="@+id/RegisterFragment"
+        android:name="com.example.proyecto.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_RegisterFragment_to_LoginFragment"
+            app:destination="@id/LoginFragment"
+            app:popUpTo="@id/RegisterFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Home (Base Principal) -->
+    <fragment
+        android:id="@+id/HomeFragment"
+        android:name="com.example.proyecto.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <argument
+            android:name="Usuario"
+            app:argType="com.example.proyecto.Entities.UserEntity" />
+        <action
+            android:id="@+id/action_HomeFragment_to_addConfigurationFragment"
+            app:destination="@id/addConfigurationFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_configurationDetailFragment"
+            app:destination="@id/configurationDetailFragment" />
+    </fragment>
+
+    <!-- Agregar Configuración (Siempre regresa a Home) -->
+    <fragment
+        android:id="@+id/addConfigurationFragment"
+        android:name="com.example.proyecto.AddConfigurationFragment"
+        android:label="fragment_add_configuration"
+        tools:layout="@layout/fragment_add_configuration" >
+        <argument
+            android:name="Usuario"
+            app:argType="com.example.proyecto.Entities.UserEntity" />
+        <action
+            android:id="@+id/action_addConfigurationFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment"
+            app:popUpTo="@id/addConfigurationFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Detalles de Configuración (Siempre regresa a Home) -->
+    <fragment
+        android:id="@+id/configurationDetailFragment"
+        android:name="com.example.proyecto.ConfigurationDetailFragment"
+        android:label="fragment_configuration_detail"
+        tools:layout="@layout/fragment_configuration_detail" >
+        <argument
+            android:name="Usuario"
+            app:argType="com.example.proyecto.Entities.UserEntity" />
+        <argument
+            android:name="ConfigurationWithComponets"
+            app:argType="com.example.proyecto.Entities.ConfigurationWithComponents" />
+        <action
+            android:id="@+id/action_configurationDetailFragment_to_editConfigurationFragment"
+            app:destination="@id/editConfigurationFragment" />
+    </fragment>
+
+    <!-- Editar Configuración (Siempre regresa a Detail) -->
+    <fragment
+        android:id="@+id/editConfigurationFragment"
+        android:name="com.example.proyecto.EditConfigurationFragment"
+        android:label="fragment_edit_configuration"
+        tools:layout="@layout/fragment_edit_configuration" >
+        <argument
+            android:name="Usuario"
+            app:argType="com.example.proyecto.Entities.UserEntity" />
+        <argument
+            android:name="ConfigurationWithComponets"
+            app:argType="com.example.proyecto.Entities.ConfigurationWithComponents" />
+        <action
+            android:id="@+id/action_editConfigurationFragment_to_configurationDetailFragment"
+            app:destination="@id/configurationDetailFragment"
+            app:popUpTo="@id/configurationDetailFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+</navigation>
