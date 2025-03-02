@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/common_margin_min"
+    android:layout_marginHorizontal="@dimen/common_margin_min">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/common_margin_min">
+
+        <!-- Imagen de la configuración -->
+        <ImageView
+            android:id="@+id/ivNews"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/avatars"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvTitle" />
+
+        <!-- Título de la configuración -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_vertical_margin"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            app:layout_constraintStart_toEndOf="@id/ivNews"
+            app:layout_constraintEnd_toStartOf="@+id/tbFavorite"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Título de la configuración" />
+
+        <!-- Precio de la configuración -->
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/activity_vertical_margin"
+            android:layout_marginTop="4dp"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textColor="?attr/colorPrimary"
+            app:layout_constraintStart_toStartOf="@id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            tools:text="Precio: $999.99" />
+
+        <!-- ToggleButton para Favoritos -->
+        <ToggleButton
+            android:id="@+id/tbFavorite"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/toggle_favorite"
+            android:checked="false"
+            android:textOff=""
+            android:textOn=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvTitle" />
+
+        <!-- Resumen de la configuración -->
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_margin_min"
+            android:layout_marginTop="@dimen/common_margin_min"
+            android:ellipsize="end"
+            android:textAppearance="?attr/textAppearanceBody2"
+            app:layout_constraintStart_toEndOf="@id/ivNews"
+            app:layout_constraintTop_toBottomOf="@id/tvPrice"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Este es el resumen de la configuración. Aquí se mostrará una breve descripción." />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
